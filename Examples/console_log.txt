@@ -1,0 +1,300 @@
+C:\Users\Mark\anaconda3\python.exe "C:/Program Files/JetBrains/PyCharm 2023.3.1/plugins/python/helpers/pydev/pydevconsole.py" --mode=client --host=127.0.0.1 --port=63635
+
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['C:\\Users\\Mark\\PycharmProjects\\Console Reporter'])
+
+Python 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.20.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 8.20.0
+
+Python 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)] on win32
+In [2]: import google.ai.generativelanguage as glm
+   ...: import google.generativeai as genai
+   ...:
+   ...: apikey = open('apikey.txt').read()
+   ...: genai.configure(api_key=apikey)
+   ...:
+   ...: model = genai.GenerativeModel('gemini-pro')
+   ...:
+   ...: console_log = open('console.txt').read()
+   ...: specified_outcome = ('create a function to return the sum of 3 numbers')
+   ...: response = model.generate_content('Eliminate erroneous code from the following console session: ' + console_log)
+   ...:
+   ...:
+In [3]: response.text
+Out[3]: "```\nimport sys; print('Python %s on %s' % (sys.version, sys.platform))\nsys.path.extend(['C:\\\\Users\\\\Mark\\\\PycharmProjects\\\\Console Reporter'])\n\nPython 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)]\nType 'copyright', 'credits' or 'license' for more information\nIPython 8.20.0 -- An enhanced Interactive Python. Type '?' for help.\nPyDev console: using IPython 8.20.0\n\nPython 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)] on win32\nIn [2]: def add_func(a, b, c):\n   ...:     result = a+b+c\n   ...:     return result\n   ...:\nIn [3]: add_func(1,2,3)\nOut[3]: 6\nIn [4]: def add_func(a, b, c):\n    ...:     return a+b+c\n    ...:\nIn [5]: add_func(1,2,3)\nOut[5]: 6\n```"
+In [4]: import nbformat as nbf
+In [5]: nb = nbf.v4.new_notebook()
+In [6]: text = response.text
+In [7]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [8]: fname = 'test.ipynb'
+In [9]: with open(fname, 'w') as f:
+   ...:     nbf.write(nb, f)
+   ...:
+In [10]: import google.ai.generativelanguage as glm
+    ...: import google.generativeai as genai
+    ...:
+    ...: apikey = open('apikey.txt').read()
+    ...: genai.configure(api_key=apikey)
+    ...:
+    ...: model = genai.GenerativeModel('gemini-pro')
+    ...:
+    ...: console_log = open('console.txt').read()
+    ...: outcome_line = 11
+    ...: specified_outcome = ('create a function to return the sum of 3 numbers')
+    ...: response = model.generate_content('Eliminate all code which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line))
+    ...:
+In [11]: nb = nbf.v4.new_notebook()
+In [12]: text = response.text
+In [13]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [14]: fname = 'test.ipynb'
+In [15]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:
+In [16]: response.text
+Out[16]: '```python\ndef sum_three_numbers(x, y, z):\n  return x + y + z\n\nprint(sum_three_numbers(3, 4, 4))\n```'
+In [17]: import google.ai.generativelanguage as glm
+    ...: import google.generativeai as genai
+    ...:
+    ...: apikey = open('apikey.txt').read()
+    ...: genai.configure(api_key=apikey)
+    ...:
+    ...: model = genai.GenerativeModel('gemini-pro')
+    ...:
+    ...: console_log = open('console.txt').read()
+    ...: outcome_line = 11
+    ...: specified_outcome = ('create a function to return the sum of 3 numbers')
+    ...: response = model.generate_content('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+    ...:
+In [18]: text = response.text
+In [19]: fname = 'test.ipynb'
+In [20]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [21]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:
+In [22]: import google.ai.generativelanguage as glm
+    ...: import google.generativeai as genai
+    ...:
+    ...: apikey = open('apikey.txt').read()
+    ...: genai.configure(api_key=apikey)
+    ...:
+    ...: model = genai.GenerativeModel('gemini-pro')
+    ...:
+    ...: console_log = open('console.txt').read()
+    ...: outcome_line = 11
+    ...: specified_outcome = ('create a function to return the sum of 3 numbers')
+    ...: response = model.generate_content('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line. Return the code in its original format with its original line numbers.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+    ...:
+In [23]: text = response.text
+In [24]: fname = 'test.ipynb'
+In [25]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [26]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:
+In [27]: import google.ai.generativelanguage as glm
+    ...: import google.generativeai as genai
+    ...:
+    ...: apikey = open('apikey.txt').read()
+    ...: genai.configure(api_key=apikey)
+    ...:
+    ...: model = genai.GenerativeModel('gemini-pro')
+    ...:
+    ...: console_log = open('console.txt').read()
+    ...: outcome_line = 11
+    ...: specified_outcome = ('create a function to return the sum of 3 numbers')
+    ...: response = model.generate_content('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line. Return the code in its original format with its input, output, and line numbers.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+    ...:
+In [28]: text = response.text
+In [29]: fname = 'test.ipynb'
+In [30]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [31]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:
+In [32]: import google.ai.generativelanguage as glm
+    ...: import google.generativeai as genai
+    ...:
+    ...: apikey = open('apikey.txt').read()
+    ...: genai.configure(api_key=apikey)
+    ...:
+    ...: model = genai.GenerativeModel('gemini-pro')
+    ...:
+    ...: console_log = open('console.txt').read()
+    ...: outcome_line = 11
+    ...: specified_outcome = ('create a function to return the sum of 3 numbers')
+    ...: response = model.generate_content('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+    ...:
+In [33]: import google.ai.generativelanguage as glm
+    ...: import google.generativeai as genai
+    ...:
+    ...: apikey = open('apikey.txt').read()
+    ...: genai.configure(api_key=apikey)
+    ...:
+    ...: model = genai.GenerativeModel('gemini-pro')
+    ...:
+    ...: console_log = open('console.txt').read()
+    ...: outcome_line = 11
+    ...: specified_outcome = ('create a function to return the sum of 3 numbers')
+    ...: response = model.generate_content('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line. Return the code in its original format with its input, output, and line numbers.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+    ...:
+In [34]: text = to_markdown(response.text)
+Traceback (most recent call last):
+  File "C:\Users\Mark\anaconda3\Lib\site-packages\IPython\core\interactiveshell.py", line 3553, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-34-54a86ba07694>", line 1, in <module>
+    text = to_markdown(response.text)
+           ^^^^^^^^^^^
+NameError: name 'to_markdown' is not defined
+In [35]: def to_markdown(text):
+    ...:   text = text.replace('•', '  *')
+    ...:   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
+    ...:
+In [36]: text = to_markdown(response.text)
+Traceback (most recent call last):
+  File "C:\Users\Mark\anaconda3\Lib\site-packages\IPython\core\interactiveshell.py", line 3553, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-36-54a86ba07694>", line 1, in <module>
+    text = to_markdown(response.text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<ipython-input-35-7133dd4323fc>", line 3, in to_markdown
+    return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
+           ^^^^^^^^
+NameError: name 'Markdown' is not defined
+In [37]: from IPython.display import Markdown
+In [38]: text = to_markdown(response.text)
+Traceback (most recent call last):
+  File "C:\Users\Mark\anaconda3\Lib\site-packages\IPython\core\interactiveshell.py", line 3553, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-38-54a86ba07694>", line 1, in <module>
+    text = to_markdown(response.text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<ipython-input-35-7133dd4323fc>", line 3, in to_markdown
+    return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
+                    ^^^^^^^^
+NameError: name 'textwrap' is not defined
+In [39]: from IPython.display import display
+In [40]: import textwrap
+In [41]: text = to_markdown(response.text)
+In [42]: fname = 'test.ipynb'
+In [43]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+Traceback (most recent call last):
+  File "C:\Users\Mark\anaconda3\Lib\site-packages\IPython\core\interactiveshell.py", line 3553, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-43-e4e2fbc722df>", line 1, in <module>
+    nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mark\anaconda3\Lib\site-packages\nbformat\v4\nbbase.py", line 143, in new_markdown_cell
+    validate(cell, "markdown_cell")
+  File "C:\Users\Mark\anaconda3\Lib\site-packages\nbformat\v4\nbbase.py", line 40, in validate
+    return validate_orig(node, ref=ref, version=nbformat)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mark\anaconda3\Lib\site-packages\nbformat\validator.py", line 502, in validate
+    raise error
+nbformat.validator.NotebookValidationError: <IPython.core.display.Markdown object> is not valid under any of the given schemas
+
+Failed validating 'oneOf' in notebook['properties']['source']:
+
+On instance['source']:
+<IPython.core.display.Markdown object>
+In [44]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:
+In [45]: import google.ai.generativelanguage as glm
+    ...: import google.generativeai as genai
+    ...:
+    ...: apikey = open('apikey.txt').read()
+    ...: genai.configure(api_key=apikey)
+    ...:
+    ...: model = genai.GenerativeModel('gemini-pro')
+    ...:
+    ...: console_log = open('console.txt').read()
+    ...: outcome_line = 11
+    ...: specified_outcome = ('create a function to return the sum of 3 numbers')
+    ...: response = model.generate_content('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+    ...:
+In [46]: text = response.text
+In [47]: fname = 'test.ipynb'
+In [48]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [49]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:
+In [50]: chat = model.start_chat(history=[])
+In [51]: response = chat.send_message('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+In [52]: response.text
+Out[52]: '```python\ndef add_func(a, b, c):\n    return a+b+c\n\nadd_func(1,2,3)\n```'
+In [53]: chat.history
+Out[53]:
+[parts {
+   text: "Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: create a function to return the sum of 3 numbers. Output Line: 11. Console Log: C:\\Users\\Mark\\anaconda3\\python.exe \"C:/Program Files/JetBrains/PyCharm 2023.3.1/plugins/python/helpers/pydev/pydevconsole.py\" --mode=client --host=127.0.0.1 --port=60728\n\nimport sys; print(\'Python %s on %s\' % (sys.version, sys.platform))\nsys.path.extend([\'C:\\\\Users\\\\Mark\\\\PycharmProjects\\\\Console Reporter\'])\n\nPython 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)]\nType \'copyright\', \'credits\' or \'license\' for more information\nIPython 8.20.0 -- An enhanced Interactive Python. Type \'?\' for help.\nPyDev console: using IPython 8.20.0\n\nPython 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)] on win32\nIn [2]: import google.ai.generativelanguage as glm\n   ...: import google.generativeai as genai\nTraceback (most recent call last):\n  File \"C:\\Users\\Mark\\anaconda3\\Lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 3553, in run_code\n    exec(code_obj, self.user_global_ns, self.user_ns)\n  File \"<ipython-input-2-82124dc574b1>\", line 1, in <module>\n    import google.ai.generativelanguage as glm\n  File \"C:\\Program Files\\JetBrains\\PyCharm 2023.3.1\\plugins\\python\\helpers\\pydev\\_pydev_bundle\\pydev_import_hook.py\", line 21, in do_import\n    module = self._system_import(name, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named \'google.ai\'\nIn [3]: def add_func(a, b, c):\n   ...:     result = A=b+c\n   ...:     respond reslut\n   ...:\n  Cell In[3], line 3\n    respond reslut\n            ^\nSyntaxError: invalid syntax\n\nIn [4]: def add_func(a, b, c):\n   ...:     result = A=b+c\n   ...:     return result\n   ...:\n   ...:\nIn [5]: result\nTraceback (most recent call last):\n  File \"C:\\Users\\Mark\\anaconda3\\Lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 3553, in run_code\n    exec(code_obj, self.user_global_ns, self.user_ns)\n  File \"<ipython-input-5-0ac921c19f1a>\", line 1, in <module>\n    result\nNameError: name \'result\' is not defined\nIn [6]: add_func(1,2,3)\nOut[6]: 5\nIn [7]: result\nTraceback (most recent call last):\n  File \"C:\\Users\\Mark\\anaconda3\\Lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 3553, in run_code\n    exec(code_obj, self.user_global_ns, self.user_ns)\n  File \"<ipython-input-7-0ac921c19f1a>\", line 1, in <module>\n    result\nNameError: name \'result\' is not defined\nIn [8]: def add_func(a, b, c):\n   ...:     result = a+b+c\n   ...:     return result\n   ...:\nIn [9]: add_func(1,2,3)\nOut[9]: 6\nIn [10]: def add_func(a, b, c):\n    ...:     return a+b+c\n    ...:\nIn [11]: add_func(1,2,3)\nOut[11]: 6\n"
+ }
+ role: "user",
+ parts {
+   text: "```python\ndef add_func(a, b, c):\n    return a+b+c\n\nadd_func(1,2,3)\n```"
+ }
+ role: "model"]
+In [54]: response = chat.send_message('Explain each section of the code. Label the explanations \' Explanation: <text>. Code: <code>')
+In [55]: response.text
+Out[55]: '**Explanation: Define the `add_func` function.**\n```python\ndef add_func(a, b, c):\n```\n\n**Explanation: Add the three input numbers (a, b, and c) and store the result in the `result` variable.**\n```python\n    result = a+b+c\n```\n\n**Explanation: Return the `result` variable.**\n```python\n    return result\n```\n\n**Explanation: Call the `add_func` function with the input numbers 1, 2, and 3.**\n```python\nadd_func(1,2,3)\n```'
+In [56]: text = response.text
+In [57]: fname = 'test.ipynb'
+In [58]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [59]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:
+In [60]: chat = model.start_chat(history=[])
+In [61]: response = chat.send_message('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+In [62]: response = chat.send_message('Explain each section of the code. Label the explanations and code chunks \' Explanation: <text>. Code: <code>')
+In [63]: text = response.text
+In [64]: fname = 'test.ipynb'
+In [65]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [66]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:
+In [67]: chat.history
+Out[67]:
+[parts {
+   text: "Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: create a function to return the sum of 3 numbers. Output Line: 11. Console Log: C:\\Users\\Mark\\anaconda3\\python.exe \"C:/Program Files/JetBrains/PyCharm 2023.3.1/plugins/python/helpers/pydev/pydevconsole.py\" --mode=client --host=127.0.0.1 --port=60728\n\nimport sys; print(\'Python %s on %s\' % (sys.version, sys.platform))\nsys.path.extend([\'C:\\\\Users\\\\Mark\\\\PycharmProjects\\\\Console Reporter\'])\n\nPython 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)]\nType \'copyright\', \'credits\' or \'license\' for more information\nIPython 8.20.0 -- An enhanced Interactive Python. Type \'?\' for help.\nPyDev console: using IPython 8.20.0\n\nPython 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)] on win32\nIn [2]: import google.ai.generativelanguage as glm\n   ...: import google.generativeai as genai\nTraceback (most recent call last):\n  File \"C:\\Users\\Mark\\anaconda3\\Lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 3553, in run_code\n    exec(code_obj, self.user_global_ns, self.user_ns)\n  File \"<ipython-input-2-82124dc574b1>\", line 1, in <module>\n    import google.ai.generativelanguage as glm\n  File \"C:\\Program Files\\JetBrains\\PyCharm 2023.3.1\\plugins\\python\\helpers\\pydev\\_pydev_bundle\\pydev_import_hook.py\", line 21, in do_import\n    module = self._system_import(name, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named \'google.ai\'\nIn [3]: def add_func(a, b, c):\n   ...:     result = A=b+c\n   ...:     respond reslut\n   ...:\n  Cell In[3], line 3\n    respond reslut\n            ^\nSyntaxError: invalid syntax\n\nIn [4]: def add_func(a, b, c):\n   ...:     result = A=b+c\n   ...:     return result\n   ...:\n   ...:\nIn [5]: result\nTraceback (most recent call last):\n  File \"C:\\Users\\Mark\\anaconda3\\Lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 3553, in run_code\n    exec(code_obj, self.user_global_ns, self.user_ns)\n  File \"<ipython-input-5-0ac921c19f1a>\", line 1, in <module>\n    result\nNameError: name \'result\' is not defined\nIn [6]: add_func(1,2,3)\nOut[6]: 5\nIn [7]: result\nTraceback (most recent call last):\n  File \"C:\\Users\\Mark\\anaconda3\\Lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 3553, in run_code\n    exec(code_obj, self.user_global_ns, self.user_ns)\n  File \"<ipython-input-7-0ac921c19f1a>\", line 1, in <module>\n    result\nNameError: name \'result\' is not defined\nIn [8]: def add_func(a, b, c):\n   ...:     result = a+b+c\n   ...:     return result\n   ...:\nIn [9]: add_func(1,2,3)\nOut[9]: 6\nIn [10]: def add_func(a, b, c):\n    ...:     return a+b+c\n    ...:\nIn [11]: add_func(1,2,3)\nOut[11]: 6\n"
+ }
+ role: "user",
+ parts {
+   text: "```python\ndef add_func(a, b, c):\n    return a+b+c\n\nadd_func(1,2,3)\n```"
+ }
+ role: "model",
+ parts {
+   text: "Explain each section of the code. Label the explanations and code chunks \' Explanation: <text>. Code: <code>"
+ }
+ role: "user",
+ parts {
+   text: "```python\n# Define a function called add_func that takes three arguments: a, b, and c.\ndef add_func(a, b, c):\n\n    # Inside the function, calculate the sum of the three arguments and store the result in a variable called result.\n    result = a + b + c\n\n    # Return the result of the calculation.\n    return result\n\n# Call the add_func function with the arguments 1, 2, and 3, and store the returned value in a variable called sum.\nsum = add_func(1, 2, 3)\n\n# Print the value of the sum variable to the console.\nprint(sum)\n```\nExplanation: This code defines a function called `add_func` that takes three arguments and returns the sum of those arguments. It then calls the `add_func` function with the arguments 1, 2, and 3, and prints the returned value to the console.\n\nOutput:\n\n```\n6\n```"
+ }
+ role: "model"]
+In [68]: chat = model.start_chat(history=[])
+In [69]: response = chat.send_message('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+In [70]: response = chat.send_message('Explain each section of the code you returned. Label the explanations and code chunks \' Explanation: <text>. Code: <code>')
+In [71]: text = response.text
+In [72]: fname = 'test.ipynb'
+In [73]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [74]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:
+In [75]: chat = model.start_chat(history=[])
+In [76]: response = chat.send_message('Explain each section of the code you returned. Label the explanations and code chunks.')
+In [77]: chat = model.start_chat(history=[])
+In [78]: response = chat.send_message('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+In [79]: response = chat.send_message('Explain each section of the code you returned. Label the explanations and code chunks.')
+In [80]: text = response.text
+In [81]: fname = 'test.ipynb'
+In [82]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [83]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:
+In [84]: chat = model.start_chat(history=[])
+In [85]: response = chat.send_message('Explain each section of the code you returned. Label the explanations and code chunks \' Explanation: <text>. Code: <code>')
+In [86]: chat = model.start_chat(history=[])
+In [87]: response = chat.send_message('Eliminate all code from the console log which is not necessary to achieve the specified outcome as demonstrated in the specified output line.  Specified Outcome: ' + specified_outcome + '. Output Line: ' + str(outcome_line) + '. Console Log: ' + console_log)
+In [88]: response = chat.send_message('Explain each section of the code you returned. Label the explanations and code chunks \' Explanation: <text>. Code: <code>')
+In [89]: text = response.text
+In [90]: nb['cells'] = [nbf.v4.new_markdown_cell(text)]
+In [91]: with open(fname, 'w') as f:
+    ...:     nbf.write(nb, f)
+    ...:

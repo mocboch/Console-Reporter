@@ -1,0 +1,63 @@
+C:\Users\Mark\anaconda3\python.exe "C:/Program Files/JetBrains/PyCharm 2023.3.1/plugins/python/helpers/pydev/pydevconsole.py" --mode=client --host=127.0.0.1 --port=60728
+
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['C:\\Users\\Mark\\PycharmProjects\\Console Reporter'])
+
+Python 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.20.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 8.20.0
+
+Python 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)] on win32
+In [2]: import google.ai.generativelanguage as glm
+   ...: import google.generativeai as genai
+Traceback (most recent call last):
+  File "C:\Users\Mark\anaconda3\Lib\site-packages\IPython\core\interactiveshell.py", line 3553, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-2-82124dc574b1>", line 1, in <module>
+    import google.ai.generativelanguage as glm
+  File "C:\Program Files\JetBrains\PyCharm 2023.3.1\plugins\python\helpers\pydev\_pydev_bundle\pydev_import_hook.py", line 21, in do_import
+    module = self._system_import(name, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'google.ai'
+In [3]: def add_func(a, b, c):
+   ...:     result = A=b+c
+   ...:     respond reslut
+   ...:
+  Cell In[3], line 3
+    respond reslut
+            ^
+SyntaxError: invalid syntax
+
+In [4]: def add_func(a, b, c):
+   ...:     result = A=b+c
+   ...:     return result
+   ...:
+   ...:
+In [5]: result
+Traceback (most recent call last):
+  File "C:\Users\Mark\anaconda3\Lib\site-packages\IPython\core\interactiveshell.py", line 3553, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-5-0ac921c19f1a>", line 1, in <module>
+    result
+NameError: name 'result' is not defined
+In [6]: add_func(1,2,3)
+Out[6]: 5
+In [7]: result
+Traceback (most recent call last):
+  File "C:\Users\Mark\anaconda3\Lib\site-packages\IPython\core\interactiveshell.py", line 3553, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-7-0ac921c19f1a>", line 1, in <module>
+    result
+NameError: name 'result' is not defined
+In [8]: def add_func(a, b, c):
+   ...:     result = a+b+c
+   ...:     return result
+   ...:
+In [9]: add_func(1,2,3)
+Out[9]: 6
+In [10]: def add_func(a, b, c):
+    ...:     return a+b+c
+    ...:
+In [11]: add_func(1,2,3)
+Out[11]: 6
